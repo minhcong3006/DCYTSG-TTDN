@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Webtt.Models.News>
+
+@{
+    ViewData["Title"] = "Tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="css/content.css" />
+
+
+@*<contents>
+        <div class="w-clear wikis">
+            <div class="w-clear">
+                <div class="w-clear">
+                    <div class="main-tit">
+                        <h2 class="name">Tin tức</h2>
+                    </div>
+                </div>
+                <div class="w-clear box-share">
+                    <div class="addthis_native_toolbox">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-6">
+                                    <div class="tm-activity-block">
+                                        <div class="tm-activity-img-container">
+                                            <a asp-action="Index" asp-controller="NewsDetail" asp-route-id="@item.NewsId" asp-route-name="@item.NewsTitle" tabindex="-1">
+                                                <img src="~/img/@item.NewsImage" alt="Image" class="tm-activity-img" />
+                                            </a>
+                                        </div>
+                                        <br />
+                                        <div class="tm-activity-block-text">
+                                            <a asp-action="Index" asp-controller="NewsDetail" asp-route-id="@item.NewsId" asp-route-name="@item.NewsTitle" tabindex="-1">
+                                                <h3 class="tm-text-blue" style="text-align:center; font-weight:bold;">@item.NewsTitle</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </contents>*@
+
+<contents>
+    <div class="w-clear wikis">
+        <div class="w-clear">
+            <div class="w-clear">
+                <div class="main-tit">
+                    <h2 class="name">Tin tức - Sự kiện</h2>
+                </div>
+            </div>
+        </div>
+        <div class="w-clear pad_10 all-new">
+            <div class="box-new">
+                @foreach (var item in Model)
+                {
+                    <div class="row-new">
+                        <div class="img-blog">
+                            <a asp-action="Index" asp-controller="NewsDetail" asp-route-id="@item.NewsId" asp-route-name="@item.NewsTitle" tabindex="-1">
+                                <img src="~/img/@item.NewsImage" alt="">
+                            </a>
+                        </div>
+                        <div class="content-blog">
+                            <a asp-action="Index" asp-controller="NewsDetail" asp-route-id="@item.NewsId" asp-route-name="@item.NewsTitle" tabindex="-1">
+                                <h3>@item.NewsTitle</h3>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</contents>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script>
+        $(function (){
+
+        $('#nav li a').each(function(){
+            var path = window.location.href;
+            var current = path.substring(path.lastIndexOf('/')+1);
+            var url = $(this).attr('href');
+
+            if(url == current){
+                $(this).addClass('active');
+            };
+        });
+        });
+</script>

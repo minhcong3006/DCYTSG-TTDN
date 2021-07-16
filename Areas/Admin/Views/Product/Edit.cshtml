@@ -1,0 +1,67 @@
+﻿
+
+@model Webtt.Models.ProductModels
+
+@{ ViewData["Title"] = "Sửa sản phẩm";
+                Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+
+<div class="container">
+    <h1 class="add">Sửa sản phẩm</h1>
+    <hr />
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductId" />
+        <div class="row">
+            <div class="col-md-4">
+                <label class="label-form" style="font-weight:bold">Tên sản phẩm</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="ProductName" class="input-form" type="text">
+                <span asp-validation-for="ProductName" class="text-danger" style="color:red"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label class="label-form" style="font-weight:bold">Mô tả</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="Description" class="input-form" type="text">
+                <span asp-validation-for="Description" class="text-danger" style="color:red"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="label-form" style="font-weight:bold">Giá</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="ProductPrice" class="input-form" type="number">
+                <span asp-validation-for="ProductPrice" class="text-danger" style="color:red"></span>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-md-4">
+                    <label class="label-form" style="font-weight:bold">Danh mục</label>
+                </div>
+                <div class="col-md-8">
+                    <select asp-for="CategoryId" class="select-form" asp-items="ViewBag.Categories">
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger" style="color:red"></span>
+                </div>
+            </div>
+        <br />
+        <div class="row">
+            <input class="submit-form" type="submit" value="Lưu">
+        </div>
+    </form>
+    <div class="back">
+        <a class="button-back" asp-action="Index">Trở về</a>
+    </div>
+</div>
+
+
+
+
+
+
+
